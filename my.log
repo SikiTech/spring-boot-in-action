@@ -1,0 +1,29 @@
+2019-05-14 18:51:35.785  INFO 3344 --- [main] c.s.s.SpringBootInActionApplication      : Starting SpringBootInActionApplication on HughdeMacBook-Air.local with PID 3344 (/Users/tsai/Git/spring-boot-in-action/target/classes started by tsai in /Users/tsai/Git/spring-boot-in-action)
+2019-05-14 18:51:35.788  INFO 3344 --- [main] c.s.s.SpringBootInActionApplication      : The following profiles are active: dev
+2019-05-14 18:51:37.446  INFO 3344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-14 18:51:37.615  INFO 3344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 1 repository interfaces.
+2019-05-14 18:51:38.108  INFO 3344 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$169582d4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-14 18:51:38.634  INFO 3344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-05-14 18:51:38.661  INFO 3344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-14 18:51:38.661  INFO 3344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-14 18:51:38.847  INFO 3344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2019-05-14 18:51:38.848  INFO 3344 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2997 ms
+2019-05-14 18:51:39.022  INFO 3344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-05-14 18:51:39.156  INFO 3344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-05-14 18:51:39.205  INFO 3344 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-05-14 18:51:39.435  INFO 3344 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-05-14 18:51:39.438  INFO 3344 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-05-14 18:51:39.562  INFO 3344 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-05-14 18:51:39.690  INFO 3344 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-05-14 18:51:40.263  INFO 3344 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-05-14 18:51:40.825  INFO 3344 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-14 18:51:40.867  WARN 3344 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-05-14 18:51:40.956  WARN 3344 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-05-14 18:51:41.158  INFO 3344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2019-05-14 18:51:41.161  INFO 3344 --- [main] c.s.s.SpringBootInActionApplication      : Started SpringBootInActionApplication in 6.056 seconds (JVM running for 6.954)
+2019-05-14 19:58:20.714  INFO 3344 --- [Thread-15] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-14 19:58:20.719  INFO 3344 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-05-14 19:58:20.728  INFO 3344 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-05-14 19:58:20.733  INFO 3344 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

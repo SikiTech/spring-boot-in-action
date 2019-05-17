@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <property name="APP_NAME" value="action" />
+    <property name="LOG_MAX_HISTORY" value="180" />
+    <property name="LOG_APP_HOME" value="${APP_NAME}/logs" />
+    <!-- 读取application.properties中的值 -->
+    <springProperty scope="context" name="logName" source="spring.application.name" defaultValue="myapp.log"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_APP_HOME}/${logName}.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>${LOG_MAX_HISTORY}</MaxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{500} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework">
+        <level value="WARN" />
+    </logger>
+    <logger name="org.apache.shiro">
+        <level value="WARN" />
+    </logger>
+    <logger name="freemarker">
+        <level value="WARN" />
+    </logger>
+    <logger name="org.hibernate">
+        <level value="WARN" />
+    </logger>
+    <logger name="org.hibernate.SQL">
+        <level value="DEBUG" />
+    </logger>
+    <logger name="com.sikiapp.springbootinaction.logger" level="DEBUG" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+
+    <springProfile name="test,dev">
+        <logger name="com.sikiapp.springbootinaction.logger" level="info" />
+        <root level="DEBUG">
+            <appender-ref ref="console"/>
+        </root>
+    </springProfile>
+    <springProfile name="prod">
+        <logger name="com.sikiapp.springbootinaction.logger" level="ERROR" />
+        <root level="INFO">
+            <appender-ref ref="file"/>
+        </root>
+    </springProfile>
+
+</configuration>
