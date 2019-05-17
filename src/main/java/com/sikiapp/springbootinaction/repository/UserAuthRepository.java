@@ -11,7 +11,6 @@ import com.sikiapp.springbootinaction.model.UserAuth;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -22,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @data: 2019-05-07 下午11:15
  * @version: V1.0
  **/
-@Repository
+//@Repository
 public interface UserAuthRepository extends JpaRepository<UserAuth, Integer> {
 
     // 自定义查询

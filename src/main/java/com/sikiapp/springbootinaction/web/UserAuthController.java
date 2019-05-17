@@ -8,8 +8,10 @@
 package com.sikiapp.springbootinaction.web;
 
 import com.sikiapp.springbootinaction.mapper.UserAuthMapper;
-import com.sikiapp.springbootinaction.repository.UserAuthRepository;
+import com.sikiapp.springbootinaction.mapper.test1.UserAuth1Mapper;
+import com.sikiapp.springbootinaction.mapper.test2.UserAuth2Mapper;
 import com.sikiapp.springbootinaction.model.UserAuth;
+import com.sikiapp.springbootinaction.repository.UserAuthRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,11 +34,15 @@ public class UserAuthController {
 
     private UserAuthRepository userAuthRepository;
     private UserAuthMapper userAuthMapper;
+    private UserAuth1Mapper userAuth1Mapper;
+    private UserAuth2Mapper userAuth2Mapper;
 
     @Autowired
-    public UserAuthController(UserAuthRepository userAuthRepository, UserAuthMapper userAuthMapper) {
+    public UserAuthController(UserAuthRepository userAuthRepository, UserAuthMapper userAuthMapper, UserAuth1Mapper userAuth1Mapper, UserAuth2Mapper userAuth2Mapper) {
         this.userAuthRepository = userAuthRepository;
         this.userAuthMapper = userAuthMapper;
+        this.userAuth1Mapper = userAuth1Mapper;
+        this.userAuth2Mapper = userAuth2Mapper;
     }
 
     @RequestMapping(value = "/1", method = RequestMethod.GET)
@@ -54,6 +60,22 @@ public class UserAuthController {
         UserAuth userAuth = userAuthMapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
         return userAuth;
     }
+
+    @RequestMapping(value = "/3", method = RequestMethod.GET)
+    @ResponseBody
+    public UserAuth selectByIdentifier1() throws Exception {
+        UserAuth userAuth = userAuth1Mapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
+        return userAuth;
+    }
+
+    @RequestMapping(value = "/4", method = RequestMethod.GET)
+    @ResponseBody
+    public UserAuth selectByIdentifier2() throws Exception {
+        UserAuth userAuth = userAuth2Mapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
+        return userAuth;
+    }
+
+
 
 
 }

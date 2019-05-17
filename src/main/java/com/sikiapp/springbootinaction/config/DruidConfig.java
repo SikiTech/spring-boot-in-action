@@ -39,6 +39,7 @@ public class DruidConfig {
         servletRegistrationBean.addInitParameter("resetEnable", "false");   // 是否可以重置数据源
         return servletRegistrationBean ;
     }
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean() ;
@@ -48,6 +49,7 @@ public class DruidConfig {
         filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.css,/druid/*");
         return filterRegistrationBean ;
     }
+
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource druidDataSource() {
