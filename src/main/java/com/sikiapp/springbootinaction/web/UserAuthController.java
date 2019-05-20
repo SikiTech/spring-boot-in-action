@@ -7,10 +7,9 @@
  */
 package com.sikiapp.springbootinaction.web;
 
-import com.sikiapp.springbootinaction.jpa.UserAuthRepository;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.sikiapp.springbootinaction.mapper.UserAuthMapper;
-import com.sikiapp.springbootinaction.mapper.test1.UserAuth1Mapper;
-import com.sikiapp.springbootinaction.mapper.test2.UserAuth2Mapper;
 import com.sikiapp.springbootinaction.model.UserAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Optional;
+import java.util.List;
 
 /**
  * @className: UserAuthController
@@ -32,26 +31,11 @@ import java.util.Optional;
 @RequestMapping("/userAuth")
 public class UserAuthController {
 
-    private UserAuthRepository userAuthRepository;
     private UserAuthMapper userAuthMapper;
-    private UserAuth1Mapper userAuth1Mapper;
-    private UserAuth2Mapper userAuth2Mapper;
 
     @Autowired
-    public UserAuthController(UserAuthRepository userAuthRepository, UserAuthMapper userAuthMapper, UserAuth1Mapper userAuth1Mapper, UserAuth2Mapper userAuth2Mapper) {
-        this.userAuthRepository = userAuthRepository;
+    public UserAuthController(UserAuthMapper userAuthMapper) {
         this.userAuthMapper = userAuthMapper;
-        this.userAuth1Mapper = userAuth1Mapper;
-        this.userAuth2Mapper = userAuth2Mapper;
-    }
-
-    @RequestMapping(value = "/1", method = RequestMethod.GET)
-    @ResponseBody
-    public String getUserAuthList() throws Exception {
-        Optional<UserAuth> auth = userAuthRepository.findById(36258);
-        System.out.println(auth);
-
-        return "授权";
     }
 
     @RequestMapping(value = "/2", method = RequestMethod.GET)
@@ -64,16 +48,39 @@ public class UserAuthController {
     @RequestMapping(value = "/3", method = RequestMethod.GET)
     @ResponseBody
     public UserAuth selectByIdentifier1() throws Exception {
-        UserAuth userAuth = userAuth1Mapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
+        UserAuth userAuth = userAuthMapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
         return userAuth;
     }
 
     @RequestMapping(value = "/4", method = RequestMethod.GET)
     @ResponseBody
     public UserAuth selectByIdentifier2() throws Exception {
-        UserAuth userAuth = userAuth2Mapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
+        UserAuth userAuth = userAuthMapper.selectByIdentifier("15521291337", "caicx621", (byte)1);
         return userAuth;
     }
+
+    @RequestMapping(value = "/5", method = RequestMethod.GET)
+    @ResponseBody
+    public UserAuth selectByPrimaryKey() throws Exception {
+        UserAuth userAuth = userAuthMapper.selectByPrimaryKey(36258);
+        return userAuth;
+    }
+
+    @RequestMapping(value = "/6", method = RequestMethod.GET)
+    @ResponseBody
+    public List<UserAuth> selectByUserBaseId() throws Exception {
+        List<UserAuth> auths = userAuthMapper.selectByUserBaseId(1196);
+        return auths;
+    }
+
+    @RequestMapping(value = "/7", method = RequestMethod.GET)
+    @ResponseBody
+    public PageInfo<UserAuth> pageSelect() throws Exception {
+        PageHelper.startPage(1, 10).setOrderBy("id desc");
+        PageInfo<UserAuth> userPageInfo = new PageInfo<>(this.userAuthMapper.selectAll());
+        return userPageInfo;
+    }
+
 
 
 
