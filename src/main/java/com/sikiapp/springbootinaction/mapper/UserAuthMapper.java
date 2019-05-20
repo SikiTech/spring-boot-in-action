@@ -9,6 +9,7 @@ package com.sikiapp.springbootinaction.mapper;
 
 import com.sikiapp.springbootinaction.model.UserAuth;
 import org.apache.ibatis.annotations.*;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
  * @version: V1.0
  **/
 @Mapper
-public interface UserAuthMapper extends BaseMapper<UserAuth, Integer> {
+public interface UserAuthMapper extends BaseMapper<UserAuth> {
 
     // 注解方式
     @Select("select * from user_auth where id=#{id}")

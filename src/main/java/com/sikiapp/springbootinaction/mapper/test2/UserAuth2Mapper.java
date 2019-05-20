@@ -7,7 +7,6 @@
  */
 package com.sikiapp.springbootinaction.mapper.test2;
 
-import com.sikiapp.springbootinaction.mapper.BaseMapper;
 import com.sikiapp.springbootinaction.model.UserAuth;
 import org.apache.ibatis.annotations.*;
 
