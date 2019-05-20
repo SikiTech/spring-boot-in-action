@@ -21,6 +21,7 @@ import java.util.List;
  * @data: 2019-05-15 下午3:44
  * @version: V1.0
  **/
+@Mapper
 public interface UserAuth2Mapper extends BaseMapper<UserAuth, Integer> {
 
     // 注解方式

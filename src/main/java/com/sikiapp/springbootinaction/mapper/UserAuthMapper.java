@@ -5,9 +5,8 @@
  * date: 2019-05-15 下午3:44
  * copyright(c) 2018-2028 深圳识迹科技有限公司
  */
-package com.sikiapp.springbootinaction.mapper.test1;
+package com.sikiapp.springbootinaction.mapper;
 
-import com.sikiapp.springbootinaction.mapper.BaseMapper;
 import com.sikiapp.springbootinaction.model.UserAuth;
 import org.apache.ibatis.annotations.*;
 
@@ -22,7 +21,7 @@ import java.util.List;
  * @version: V1.0
  **/
 @Mapper
-public interface UserAuth1Mapper extends BaseMapper<UserAuth, Integer> {
+public interface UserAuthMapper extends BaseMapper<UserAuth, Integer> {
 
     // 注解方式
     @Select("select * from user_auth where id=#{id}")
