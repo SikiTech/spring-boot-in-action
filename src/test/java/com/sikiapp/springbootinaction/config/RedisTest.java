@@ -35,7 +35,8 @@ public class RedisTest {
         IntStream.range(0, 1).forEach(i ->
                 executorService.execute(() -> stringRedisTemplate.opsForValue().increment("kk", 1))
         );
-        stringRedisTemplate.opsForValue().get("kk");
+        String kk = stringRedisTemplate.opsForValue().get("kk");
+        logger.info("[多线程操作结果]", kk);
         stringRedisTemplate.opsForValue().set("k1", "v1");
         String k1 = stringRedisTemplate.opsForValue().get("k1");
         logger.info("[字符缓存结果] - [{}]", k1);
