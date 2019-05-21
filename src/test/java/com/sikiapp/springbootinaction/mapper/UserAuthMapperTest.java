@@ -32,7 +32,6 @@ public class UserAuthMapperTest {
         PageHelper.startPage(1, 10).setOrderBy("id desc");
         PageInfo<UserAuth> userPageInfo = new PageInfo<>(this.userAuthMapper.selectAll());
         System.out.println(userPageInfo);
-
     }
 
 }

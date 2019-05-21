@@ -32,7 +32,6 @@ public interface UserAuthMapper extends BaseMapper<UserAuth> {
     })
     UserAuth getOne(Integer id);
 
-
     // xml方式
     List<UserAuth> selectByUserBaseId(Integer userBaseId);
     UserAuth selectByIdentifier(@Param("identifier") String identifier, @Param("certificate") String certificate, @Param("identityType") Byte identityType);
