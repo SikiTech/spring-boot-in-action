@@ -9,6 +9,8 @@ package com.sikiapp.springbootinaction.web;
 
 import com.sikiapp.springbootinaction.properties.MyProperties1;
 import com.sikiapp.springbootinaction.properties.MyProperties2;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @data: 2019-05-14 下午3:37
  * @version: V1.0
  **/
+@Api(value = "Properties Controller", description = "通过配置类读取properties文件", tags = "PropertiesController")
 @RequestMapping("/properties")
 @RestController
 public class PropertiesController {
@@ -37,7 +40,8 @@ public class PropertiesController {
         this.properties1 = properties1;
         this.properties2 = properties2;
     }
-    
+
+    @ApiOperation("读取properties文件")
     @GetMapping("/1")
     public MyProperties1 myProperties1() {
         return properties1;
