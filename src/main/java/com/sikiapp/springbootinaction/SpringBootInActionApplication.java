@@ -12,6 +12,7 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import java.util.Arrays;
 
@@ -44,6 +45,16 @@ public class SpringBootInActionApplication {
         taskScheduler.setPoolSize(10);
         return taskScheduler;
     }
+
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver getCommonsMultipartResolver() {
+        // 解决StandardMultipartFile cannot be cast to CommonsMultipartFile
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(20971520);
+        multipartResolver.setMaxInMemorySize(1);
+        return multipartResolver;
+    }
+
 
 
 

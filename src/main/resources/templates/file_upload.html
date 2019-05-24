@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>文件上传</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<script>
+    function getRootPath() {
+        var strFullPath = window.document.location.href;
+        var strPath = window.document.location.pathname;
+        var pos = strFullPath.indexOf(strPath);
+        var prePath = strFullPath.substring(0, pos);
+        var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+        return (prePath + postPath);
+    }
+
+    var webpath = getRootPath();  //webpath就是目录路径变量
+    console.log("项目根路径" + webpath);
+</script>
+
+
+<body>
+
+    <h2>单一文件上传</h2>
+    <div>
+        <form method="POST" enctype="multipart/form-data" action="uploads/upload1">
+            <p>
+                文件1：
+                <input type="file" name="file"/>
+                <input type="submit" value="上传"/>
+            </p>
+        </form>
+    </div>
+
+    <h2>批量文件上传示例</h2>
+    <div>
+        <form method="POST" enctype="multipart/form-data"
+              action="uploads/upload2">
+            <p>
+                文件1：<input type="file" name="file"/>
+            </p>
+            <p>
+                文件2：<input type="file" name="file"/>
+            </p>
+            <p>
+                <input type="submit" value="上传"/>
+            </p>
+        </form>
+    </div>
+
+    <h2>单一文件上传</h2>
+    <div>
+        <form method="POST" enctype="multipart/form-data" action="uploads/upload3">
+            <p>
+                文件3：
+                <input type="file" name="file"/>
+                <input type="submit" value="上传"/>
+            </p>
+        </form>
+    </div>
+
+    <h2>Base64文件上传</h2>
+    <div>
+        <form method="POST" action="uploads/upload4">
+            <p>
+                BASE64编码：<textarea name="base64" rows="10" cols="80"></textarea>
+                <input type="submit" value="上传"/>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>
