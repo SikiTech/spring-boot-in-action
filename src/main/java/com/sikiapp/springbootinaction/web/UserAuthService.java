@@ -5,7 +5,7 @@
  * date: 2019-05-07 下午11:19
  * copyright(c) 2018-2028 深圳识迹科技有限公司
  */
-package com.sikiapp.springbootinaction.service;
+package com.sikiapp.springbootinaction.web;
 
 /**
  * @className: UserAuthService

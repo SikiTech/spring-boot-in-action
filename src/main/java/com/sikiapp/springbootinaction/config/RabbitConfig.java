@@ -87,7 +87,7 @@ public class RabbitConfig {
      **/
     @Bean
     public Queue delayProcessQueue() {
-        Map<String, Object> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>(8);
         // x-dead-letter-exchange 声明了队列里的死信转发到的DLX名称，
         params.put("x-dead-letter-exchange", REGISTER_EXCHANGE_NAME);
         // x-dead-letter-routing-key 声明了这些死信在转发时携带的 routing-key 名称。

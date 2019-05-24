@@ -26,7 +26,7 @@ public class MyEndpoint {
 
     @ReadOperation
     public Map<String, String> hello() {
-        Map<String, String> result = new HashMap<>();
+        Map<String, String> result = new HashMap<>(8);
         result.put("author", "Robert");
         result.put("age", "28");
         result.put("email", "robert.tsai@sikiapp.com");
