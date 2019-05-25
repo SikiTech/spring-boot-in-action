@@ -41,4 +41,6 @@ public class ElectronicsController {
     public String test2(@RequestBody @Validated @NotNull Electronics electronics) {
         return "success";
     }
+
+
 }

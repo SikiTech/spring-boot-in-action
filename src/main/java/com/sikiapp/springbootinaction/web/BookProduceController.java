@@ -9,6 +9,9 @@ package com.sikiapp.springbootinaction.web;
 
 import com.sikiapp.springbootinaction.config.RabbitConfig;
 import com.sikiapp.springbootinaction.model.Book;
+import com.sikiapp.springbootinaction.repeat.CacheLock;
+import com.sikiapp.springbootinaction.repeat.CacheParam;
+import com.sikiapp.springbootinaction.repeat.LocalLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -16,6 +19,7 @@ import org.springframework.amqp.support.converter.AbstractJavaTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -68,5 +72,15 @@ public class BookProduceController {
         logger.info("[发送时间] - [{}]", LocalDateTime.now());
     }
 
+    @LocalLock(key = "book:arg[0]")
+    @GetMapping("/local")
+    public String query(@RequestParam String token) {
+        return "success:" + token;
+    }    @LocalLock(key = "book:arg[0]")
 
+    @CacheLock(prefix = "books")
+    @GetMapping("/cache")
+    public String cacheQuery(@CacheParam(name = "token") @RequestParam String token) {
+        return "success:" + token;
+    }
 }
