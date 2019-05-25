@@ -10,6 +10,7 @@ package com.sikiapp.springbootinaction.web;
 import com.sikiapp.springbootinaction.Exception.CustomException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: V1.0
  **/
 @RestController
+@RequestMapping(("/exceptions"))
 public class ExceptionController {
 
     @GetMapping("/test3")

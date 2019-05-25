@@ -1,6 +1,5 @@
 package com.sikiapp.springbootinaction;
 
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +17,7 @@ import java.util.Arrays;
 
 @EnableAsync
 @EnableScheduling
-@EnableAdminServer
+//@EnableAdminServer
 @SpringBootApplication
 public class SpringBootInActionApplication {
 
