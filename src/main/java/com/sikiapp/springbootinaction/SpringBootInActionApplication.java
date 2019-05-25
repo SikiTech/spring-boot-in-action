@@ -50,7 +50,7 @@ public class SpringBootInActionApplication {
     public CommonsMultipartResolver getCommonsMultipartResolver() {
         // 解决StandardMultipartFile cannot be cast to CommonsMultipartFile
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(20971520);
+        multipartResolver.setMaxUploadSize(30971520);
         multipartResolver.setMaxInMemorySize(1);
         return multipartResolver;
     }
