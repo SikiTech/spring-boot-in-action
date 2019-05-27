@@ -50,6 +50,7 @@ public class SpringBootInActionApplication {
         // 解决StandardMultipartFile cannot be cast to CommonsMultipartFile
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(30971520);
+        // 缀有超过最大内存时才会写入临时磁盘文件
         multipartResolver.setMaxInMemorySize(1);
         return multipartResolver;
     }
