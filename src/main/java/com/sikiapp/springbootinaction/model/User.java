@@ -22,16 +22,30 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable {
 
-    private String name;
+    private static final long serialVersionUID = -6701849832999063005L;
+
+    private Long id;
+    private String username;
+    private String password;
+    private String roleName;
+    private Boolean locked;
     private String sex;
     private Integer age;
 
     public User() {
     }
 
-    public User(String name, String sex, Integer age) {
-        this.name = name;
+    public User(String username, String sex, Integer age) {
+        this.username = username;
         this.sex = sex;
         this.age = age;
+    }
+
+    public User(Long id, String username, String password, String roleName, Boolean locked) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.roleName = roleName;
+        this.locked = locked;
     }
 }
